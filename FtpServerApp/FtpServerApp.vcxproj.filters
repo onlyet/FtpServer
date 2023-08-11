@@ -21,6 +21,9 @@
       <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
       <Extensions>ts</Extensions>
     </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{a4a5e2dc-b4f1-484e-81ce-048b10f9930b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="debuglogdialog.h">
@@ -53,5 +56,10 @@
     <QtUic Include="mainwindow.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\log\log.h">
+      <Filter>common</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

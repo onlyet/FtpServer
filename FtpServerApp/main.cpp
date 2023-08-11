@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include <log.h>
 
 #include <QApplication>
 
@@ -11,6 +12,13 @@ int main(int argc, char *argv[])
     app.setApplicationName("FtpServer");
 
     app.setWindowIcon(QIcon(":/logo1.png"));
+
+    // 初始化日志
+    QString logDir = QString("%1/log").arg(app.applicationDirPath());
+    QDir dir;
+    dir.mkpath(logDir);
+    LogInit(logDir, app.applicationVersion());
+    setLogLevel(QtDebugMsg);
 
     // Show the main window.
     MainWindow mainWindow;

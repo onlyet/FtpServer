@@ -53,7 +53,8 @@ private:
 private:
     SslServer               *m_server;
     QSslSocket              *m_socket;
-    QPointer<FtpCommand>    m_command;
+    //QPointer<FtpCommand>    m_command;
+    FtpCommand* m_command = nullptr;
     bool                    m_isSocketReady;
     bool                    m_isWaitingForFtpCommand;
     bool                    m_encrypt;

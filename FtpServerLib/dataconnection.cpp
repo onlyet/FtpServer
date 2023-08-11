@@ -30,7 +30,7 @@ int DataConnection::listen(bool encrypt)
     delete m_socket;
     m_socket = 0;
     delete m_command;
-    m_command = 0;
+    m_command = nullptr;
     m_isSocketReady = false;
     m_isWaitingForFtpCommand = true;
     m_isActiveConnection = false;

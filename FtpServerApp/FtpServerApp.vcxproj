@@ -55,11 +55,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <IncludePath>..\FtpServerLib;$(IncludePath)</IncludePath>
+    <IncludePath>..\FtpServerLib;$(SolutionDir)common\log;$(IncludePath)</IncludePath>
     <LibraryPath>..\FtpServerLib\$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <IncludePath>..\FtpServerLib;$(IncludePath)</IncludePath>
+    <IncludePath>..\FtpServerLib;$(SolutionDir)common\log;$(IncludePath)</IncludePath>
     <LibraryPath>..\FtpServerLib\$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -113,6 +113,9 @@
   <ItemGroup>
     <QtUic Include="debuglogdialog.ui" />
     <QtUic Include="mainwindow.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\log\log.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

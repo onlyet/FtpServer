@@ -82,7 +82,7 @@ QString FtpServer::localIpv4()
 
 QString FtpServer::lanIp()
 {
-#if 1
+#if 0
     foreach(const QHostAddress & address, QNetworkInterface::allAddresses()) {
         if (address.protocol() == QAbstractSocket::IPv4Protocol && address != QHostAddress(QHostAddress::LocalHost)) {
             return address.toString();
@@ -90,6 +90,24 @@ QString FtpServer::lanIp()
     }
     return "";
 #endif
+    QList<QNetworkInterface> interfaceList = QNetworkInterface::allInterfaces();
+    for (const QNetworkInterface& interfaceItem : interfaceList) {
+        if (interfaceItem.flags().testFlag(QNetworkInterface::IsUp)
+            && interfaceItem.flags().testFlag(QNetworkInterface::IsRunning)
+            && interfaceItem.flags().testFlag(QNetworkInterface::CanBroadcast)
+            && interfaceItem.flags().testFlag(QNetworkInterface::CanMulticast)
+            && !interfaceItem.flags().testFlag(QNetworkInterface::IsLoopBack)
+            && interfaceItem.hardwareAddress() != "00:50:56:C0:00:01"
+            && interfaceItem.hardwareAddress() != "00:50:56:C0:00:08") {
+            QList<QNetworkAddressEntry> addressEntryList = interfaceItem.addressEntries();
+            for (const QNetworkAddressEntry& addressEntryItem : addressEntryList) {
+                if (addressEntryItem.ip().protocol() == QAbstractSocket::IPv4Protocol) {
+                    return addressEntryItem.ip().toString();
+                }
+            }
+        }
+}
+    return QString("");
 #if 0
     return m_ip;
 #endif

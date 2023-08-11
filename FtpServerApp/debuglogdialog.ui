@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>206</width>
+    <width>332</width>
     <height>344</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>日志</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

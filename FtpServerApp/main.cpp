@@ -10,6 +10,8 @@ int main(int argc, char *argv[])
     app.setOrganizationName("TaGuoJiang");
     app.setApplicationName("FtpServer");
 
+    app.setWindowIcon(QIcon(":/logo1.png"));
+
     // Show the main window.
     MainWindow mainWindow;
     mainWindow.setOrientation(MainWindow::ScreenOrientationAuto);

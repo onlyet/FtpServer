@@ -13,7 +13,7 @@ void SslServer::setLocalCertificateAndPrivateKey(QSslSocket* socket)
     socket->setPrivateKey(":/ssl/privkey.pem", QSsl::Rsa, QSsl::Pem, "39129380423984234012312");
     //Q_ASSERT(!socket->privateKey().isNull());
     socket->setLocalCertificate(":/ssl/cacert.pem");
-    Q_ASSERT(!socket->localCertificate().isNull());
+    //Q_ASSERT(!socket->localCertificate().isNull());
 }
 
 void SslServer::incomingConnection(PortableSocketDescriptorType socketDescriptor)

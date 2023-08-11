@@ -24,6 +24,8 @@ class DataConnection : public QObject
 public:
     explicit DataConnection(QObject *parent = 0);
 
+    ~DataConnection();
+
     // Connects to a host. Any existing data connections
     // or commands are aborted.
     void scheduleConnectToHost(const QString &hostName, int port, bool encrypt);

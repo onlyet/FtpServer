@@ -23,6 +23,7 @@ FtpRetrCommand::~FtpRetrCommand()
             emit reply("550 Requested action not taken; file unavailable.");
         }
     }
+    qDebug() << "~FtpRetrCommand()";
 }
 
 void FtpRetrCommand::startImplementation()

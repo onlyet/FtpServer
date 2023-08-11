@@ -8,6 +8,11 @@ FtpCommand::FtpCommand(QObject* parent)
     , m_started(false) {
 }
 
+FtpCommand::~FtpCommand()
+{
+    qDebug() << "~FtpCommand()";
+}
+
 void FtpCommand::start(QSslSocket *socket)
 {
     m_started = true;

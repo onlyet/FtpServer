@@ -28,13 +28,14 @@ FtpControlConnection::FtpControlConnection(QObject *parent, QSslSocket *socket, 
     m_encryptDataConnection = false;
     socket->setParent(this);
     connect(socket, SIGNAL(readyRead()), this, SLOT(acceptNewData()));
-    connect(socket, SIGNAL(disconnected()), this, SLOT(deleteLater()));
+    connect(socket, SIGNAL(disconnected()), this, SLOT(deleteLater())); // socket disconnectedºóÎö¹¹FtpControlConnection
     connect(socket, &QSslSocket::disconnected, [this, socket]() {
         emit connectionClosed(socket->peerAddress().toString());
     });
     m_currentDirectory = "/";
     m_dataConnection = new DataConnection(this);
     reply("220 Welcome to FtpServer.");
+    qDebug() << "FtpControlConnection()";
 }
 
 FtpControlConnection::~FtpControlConnection()

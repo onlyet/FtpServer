@@ -25,6 +25,7 @@ FtpStorCommand::~FtpStorCommand()
             emit reply("451 Requested action aborted: local error in processing.");
         }
     }
+    qDebug() << "~FtpStorCommand()";
 }
 
 void FtpStorCommand::startImplementation()

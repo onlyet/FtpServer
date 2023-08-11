@@ -11,6 +11,12 @@ DataConnection::DataConnection(QObject *parent) :
     m_socket = 0;
     m_isSocketReady = false;
     m_isWaitingForFtpCommand = false;
+    qDebug() << "DataConnection()";
+}
+
+DataConnection::~DataConnection()
+{
+    qDebug() << "~DataConnection()";
 }
 
 void DataConnection::scheduleConnectToHost(const QString &hostName, int port, bool encrypt)
@@ -29,7 +35,8 @@ int DataConnection::listen(bool encrypt)
     this->m_encrypt = encrypt;
     delete m_socket;
     m_socket = 0;
-    delete m_command;
+    // 注释该行，因为FtpCommand会在具体的命令完成的时候析构
+    //delete m_command; 
     m_command = nullptr;
     m_isSocketReady = false;
     m_isWaitingForFtpCommand = true;
@@ -48,6 +55,7 @@ bool DataConnection::setFtpCommand(FtpCommand *command)
     m_isWaitingForFtpCommand = false;
     this->m_command = command;
     command->setParent(this);
+    qDebug() << "setFtpCommand";
 
     if (m_isActiveConnection) 
     {

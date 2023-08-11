@@ -21,6 +21,7 @@ FtpListCommand::~FtpListCommand()
     {
         emit reply("226 Closing data connection.");
     }
+    qDebug() << "~FtpListCommand()";
 }
 
 void FtpListCommand::startImplementation()

@@ -252,7 +252,8 @@ bool FtpControlConnection::verifyAuthentication(const QString &command)
     {
         "PWD", "CWD", "TYPE", "PORT", "PASV", "LIST", "RETR", "REST",
         "NLST", "SIZE", "SYST", "PROT", "CDUP", /*"OPTS",*/ "PBSZ", "NOOP",
-        "STOR", "MKD", "RMD", "DELE", "RNFR", "RNTO", "APPE"
+        "STOR", "MKD", "RMD", "DELE", "RNFR", "RNTO", "APPE",
+        "XPWD"
     };
 
     for (size_t ii = 0; ii < sizeof(commandsRequiringAuth)/sizeof(commandsRequiringAuth[0]); ++ii) 
@@ -409,7 +410,7 @@ void FtpControlConnection::processCommand(const QString &entireCommand)
     {
         feat();
     } 
-    else if ("PWD" == command)
+    else if ("PWD" == command || "XPWD" == command)
     {
         reply(QString("257 \"%1\"").arg(m_currentDirectory));
     } 

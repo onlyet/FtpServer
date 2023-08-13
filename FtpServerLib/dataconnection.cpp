@@ -122,5 +122,11 @@ void DataConnection::startFtpCommand()
     {
         m_command->start(m_socket);
         m_socket = 0;
+
+        /*
+        * FIXME: ±ÜÃâ±ÀÀ£ÔÚ connect(m_dataConnection->ftpCommand(), SIGNAL(destroyed()), this, SLOT(disconnectFromHost()));
+        * ¸´ÏÖ£ºCMD FTP STOR->QUIT
+        */ 
+        m_command = nullptr;
     }
 }

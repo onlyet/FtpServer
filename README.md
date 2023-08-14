@@ -15,7 +15,7 @@ chrome等浏览器已不支持FTP
 
 ### 1. 使用windows资源管理器
 ```
-ftp://IP[:PROT]
+ftp://IP[:PORT]
 ```
 注意：资源管理器存在缓存，当FTP server切换根目录，资源管理器还是显示原来的根目录，这时候要右键刷新。
 
